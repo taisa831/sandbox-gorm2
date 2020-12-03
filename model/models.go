@@ -9,6 +9,7 @@ import (
 type Company struct {
 	ID        int       `gorm:"primaryKey"`
 	Name      string    `gorm:""`
+	// Track creating/updating time/unix (milli/nano) seconds for multiple fields
 	CreatedAt time.Time // Set to current time if it is zero on creating
 	UpdatedAt int       // Set to current unix seconds on updating or if it is zero on creating
 	Updated   int64     `gorm:"autoUpdateTime:nano"`  // Use unix Nano seconds as updating time

@@ -33,7 +33,20 @@ func ConnWithLogger() (*gorm.DB, error) {
 
 	dsn := fmt.Sprintf("%s:%s@tcp(127.0.0.1:3306)/gorm-v2?charset=utf8mb4&parseTime=True&loc=Local", os.Getenv("MYSQL_USER"), os.Getenv("MYSQL_PASSWORD"))
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		Logger: newLogger,
+		//SkipDefaultTransaction:                   false,
+		//NamingStrategy:                           nil,
+		//FullSaveAssociations:                     false,
+		Logger:                                   newLogger,
+		//NowFunc:                                  nil,
+		//DryRun:                                   false,
+		//PrepareStmt:                              false,
+		//DisableAutomaticPing:                     false,
+		//DisableForeignKeyConstraintWhenMigrating: false,
+		//AllowGlobalUpdate:                        false,
+		//ClauseBuilders:                           nil,
+		//ConnPool:                                 nil,
+		//Dialector:                                nil,
+		//Plugins:                                  nil,
 	})
 
 	//db, err := gorm.Open(sqlite.Open("sample.db"), &gorm.Config{

@@ -156,8 +156,8 @@ func FindInBatches() {
 		}
 		return nil
 	})
-	if err != nil {
-		fmt.Println(err.Error)
+	if err.Error != nil {
+		fmt.Println(err.Error.Error())
 	}
 }
 
@@ -336,9 +336,9 @@ func AssociationsBatchMode() {
 }
 
 func DeleteAssociationsWhenDeleting() {
-	// delete user's account when deleting user
+	// delete user's credit card when deleting user
 	user := model.User{
-		ID: 2,
+		ID: 3,
 	}
-	db.Select("Company").Delete(&user)
+	db.Select("CreditCard").Delete(&user)
 }
